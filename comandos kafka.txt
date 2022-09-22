@@ -1,0 +1,30 @@
+comandos kafka
+
+control + l = limpa a tela (tipo o cls)
+
+docker-compose up -d   
+docker-compose ps 
+
+docker logs kafka_kafka_1  
+
+docker exec -it kafka_kafka_1 bash
+
+kafka-topics --create --topic=teste --bootstrap-server=localhost:9092 --partitions=3
+
+Lista os topicos criados
+kafka-topics --list --bootstrap-server=localhost:9092
+
+Describe
+kafka-topics --bootstrap-server=localhost:9092 --topic=teste --describe
+
+Kafka consumser lendo mensagens desde o inicio.
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste --from-beginning
+
+Kafka producer fazer mensagens novas 
+kafka-console-producer --bootstrap-server=localhost:9092 --topic=teste
+
+Kafka consumer groups
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=teste --group=x
+
+Por dentro de um consumer group
+kafka-consumer-groups --bootstrap-server=localhost:9092 --group=x --describe
